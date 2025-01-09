@@ -12,13 +12,14 @@
         <form id="simulationForm">
             <label for="wagerType">Wager Type</label>
             <select id="wagerType" name="wagerType" required>
-                <option value="R-0">Roulette Single 0</option>
-                <option value="R-00">Roulette Double 0</option>
+                <option value="R-0">Roulette Even Money Bet (0)</option>
+                <option value="R-00">Roulette Even Money Bet (00)</option>
                 <option value="C-P">Craps Pass Line</option>
                 <option value="C-DP">Craps Don't Pass Line</option>
                 <option value="B-P">Baccarat Player Bet</option>
 <!--                 <option value="B-B">Baccarat Banker Bet (no commission)</option>
-                 -->            </select>
+                 -->
+            </select>
 
             <label for="winningUnits">Winning Units</label>
             <select id="winningUnits" name="winningUnits" required>
@@ -42,9 +43,7 @@
             <label for="startingUnits">Starting Units</label>
             <select id="startingUnits" name="startingUnits" required>
                 <option value="10">10</option>
-                <option value="40">40</option>
                 <option value="50" selected>50</option>
-                <option value="90">90</option>
                 <option value="100">100</option>
                 <option value="250">250</option>
                 <option value="500">500</option>
@@ -54,7 +53,7 @@
 
             <label for="numberOfTrials">Number of Trials</label>
             <select id="numberOfTrials" name="numberOfTrials" required>
-                <option value="1">1</option>
+                <option value="1">1 (debug mode)</option>
                 <option value="10">10</option>
                 <option value="100">100</option>
                 <option value="1000">1,000</option>

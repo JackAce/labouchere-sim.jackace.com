@@ -68,6 +68,14 @@
 //     }
 // }
 
+let isDebug = false;
+
+function debugLog(logMessage) {
+    if (isDebug) {
+        console.log(logMessage);
+    }
+}
+
 function performSimulation() {
     const wagerType = document.getElementById('wagerType').value;
     const winningUnits = parseInt(document.getElementById('winningUnits').value, 10);
@@ -77,7 +85,7 @@ function performSimulation() {
     //const percentWin = wagerType === '0' ? 0.5 - (1 / 74) : 0.5 - (1 / 38);
     let percentWin = 0.00;
 
-                switch (wagerType) {
+    switch (wagerType) {
       case 'R-0':
         percentWin = 0.5 - (1.0 / 74.0); // True probability
         break;
@@ -104,34 +112,28 @@ function performSimulation() {
     let isDebug = numberOfTrials == 1;
 
     for (let trial = 0; trial < numberOfTrials; trial++) {
-        let wagers = Array(winningUnits).fill(1);
+        let wagers = Array(winningUnits).fill(1);   // An array of length [winningUnits] with all 1's
         let currentBalance = startingUnits;
         
-        if (isDebug) {
-            console.log(wagers);
-        }
+        //debugLog(wagers);
 
         while (true) {
             let currentBet = wagers.length > 1 ? wagers[0] + wagers[wagers.length - 1] : wagers[0];
 
             if (wagers.length === 0) {
-                if (isDebug) {
-                  console.log('SUCCESS: ' + currentBalance);
-                }
+                //debugLog('SUCCESS: ' + currentBalance);
                 successes++;
                 break;
             }
             if (currentBet > currentBalance) {
-                if (isDebug) {
-                  console.log('FAILURE: ' + currentBet + ' vs. ' + currentBalance);
-                }
-                                        failures++;
+                //debugLog('FAILURE: ' + currentBet + ' vs. ' + currentBalance);
+                failures++;
                 break;
             }
 
             const randomValue = Math.random();
             //const randomValue = mt.genrand_real1();
-                    betsWagered++;
+            betsWagered++;
             amountWagered += currentBet;
 
             if (randomValue <= percentWin) {
@@ -139,16 +141,12 @@ function performSimulation() {
                 totalWinLoss += currentBet * 1.000;
                 wagers.pop();
                 wagers.shift();
-                if (isDebug) {
-                  console.log('WIN:  ' + wagers + ' balance: ' + currentBalance);
-                }
+                //debugLog('WIN:  ' + wagers + ' balance: ' + currentBalance);
             } else {
                 currentBalance -= currentBet;
                 totalWinLoss -= currentBet * 1.000;
                 wagers.push(currentBet);
-                if (isDebug) {
-                  console.log('LOSS: ' + wagers + ' balance: ' + currentBalance);
-                }
+                //debugLog('LOSS: ' + wagers + ' balance: ' + currentBalance);
             }
         }
     }
@@ -172,12 +170,12 @@ function performSimulation() {
 
 //const mt = new MersenneTwister(Date.now()); // Initialize with a seed
 
-document.addEventListener("DOMContentLoaded", () => {
-    //console.log(mt.genrand_real1());      // Random number between 0 and 1
-    //console.log(mt.genrand_real2());      // Higher precision random number
+// document.addEventListener("DOMContentLoaded", () => {
+//     //console.log(mt.genrand_real1());      // Random number between 0 and 1
+//     //console.log(mt.genrand_real2());      // Higher precision random number
     
-    //document.getElementById('simulationForm').addEventListener('submit', performSimulation());
-});
+//     //document.getElementById('simulationForm').addEventListener('submit', performSimulation());
+// });
 
 
 
