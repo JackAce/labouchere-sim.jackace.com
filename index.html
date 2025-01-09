@@ -1,0 +1,104 @@
+---
+title: Labouchère Simulator - JackAce.com
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labouchère Simulator</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <script src="/assets/js/labouchere-sim.js"></script>
+    {%- if jekyll.environment == 'production' and site.google_analytics -%}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{-site.google_analytics-}}"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{-site.google_analytics-}}');
+        </script>
+    {%- endif -%}
+    {%- if jekyll.environment == 'production' and site.google_adsense -%}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}" crossorigin="anonymous"></script>
+    {%- endif -%}
+</head>
+<body>
+    <div class="container">
+        <h1>Labouchère Simulation</h1>
+        <form id="simulationForm">
+            <label for="wagerType">Wager Type</label>
+            <select id="wagerType" name="wagerType" required>
+                <option value="R-0">Roulette Single 0</option>
+                <option value="R-00">Roulette Double 0</option>
+                <option value="C-P">Craps Pass Line</option>
+                <option value="C-DP">Craps Don't Pass Line</option>
+                <option value="B-P">Baccarat Player Bet</option>
+<!--                 <option value="B-B">Baccarat Banker Bet (no commission)</option>
+                 -->            </select>
+
+            <label for="winningUnits">Winning Units</label>
+            <select id="winningUnits" name="winningUnits" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+
+            <label for="startingUnits">Starting Units</label>
+            <select id="startingUnits" name="startingUnits" required>
+                <option value="10">10</option>
+                <option value="40">40</option>
+                <option value="50" selected>50</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+                <option value="250">250</option>
+                <option value="500">500</option>
+                <option value="1000">1,000</option>
+                <option value="2500">2,500</option>
+            </select>
+
+            <label for="numberOfTrials">Number of Trials</label>
+            <select id="numberOfTrials" name="numberOfTrials" required>
+                <option value="1">1</option>
+                <option value="10">10</option>
+                <option value="100">100</option>
+                <option value="1000">1,000</option>
+                <option value="10000">10,000</option>
+                <option value="100000">100,000</option>
+                <option value="500000">500,000</option>
+                <option value="1000000" selected>1,000,000</option>
+                <option value="5000000">5,000,000</option>
+                <option value="10000000">10,000,000</option>
+                <option value="50000000">50,000,000</option>
+            </select>
+
+            <button type="button" onclick="performSimulation();">Run Simulation</button>
+        </form>
+
+        <div id="results" style="display:none;">
+            <h2>Simulation Results</h2>
+            <p id="successes"></p>
+            <p id="failures"></p>
+            <p id="percentSuccess"></p>
+            <p id="amountWagered"></p>
+            <p id="betsWagered"></p>
+            <p id="averageBetSize"></p>
+            <p id="totalWinLoss"></p>
+            <p id="percentWinLoss"></p>
+        </div>
+    </div>
+</body>
+</html>
