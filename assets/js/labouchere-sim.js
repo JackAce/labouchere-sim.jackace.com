@@ -154,17 +154,8 @@ function performSimulation() {
     const totalTrials = successes + failures;
     const percentSuccess = ((successes / totalTrials) * 100).toFixed(3);
     const percentWinLoss = ((totalWinLoss / amountWagered) * 100).toFixed(3);
-    //const averageBetSize = (amountWagered * 1.0000) / betsPlaced;
 
-    // let successCssClass = "num-pos";
-    // let failureCssClass = "num-neg";
     let resultsCssClass = "num-neg";
-    // if (successes == 0) {
-    //   successCssClass = "num-zero";
-    // }
-    // if (failures == 0) {
-    //   failureCssClass = "num-zero";
-    // }
     if (totalWinLoss > 0) {
       resultsCssClass = "nul-pos";
     }
@@ -179,12 +170,9 @@ function performSimulation() {
     document.getElementById('amountWagered').textContent = `${amountWagered.toLocaleString()}`;
 
     document.getElementById('totalWinLoss').textContent = `${totalWinLoss.toLocaleString()}`;
-    //document.getElementById('totalWinLoss').classList = resultsCssClass;
 
     document.getElementById('percentWinLoss').textContent = `${percentWinLoss}%`;
     document.getElementById('percentWinLoss').classList = resultsCssClass;
-    //document.getElementById('betsPlaced').textContent = `${betsPlaced.toLocaleString()}`;
-    //document.getElementById('averageBetSize').textContent = `${averageBetSize}`;
     document.getElementById('results').style.display = 'block';
 }
 
