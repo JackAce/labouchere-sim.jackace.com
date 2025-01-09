@@ -53,11 +53,39 @@ button:hover {
     background-color: #0056b3;
 }
 
+.results-table {
+    th {
+        text-align: left;
+        margin: 2px 20px 2px 2px;
+    }
+    td {
+        margin: 2px 2px 2px 20px;
+        text-align: right;
+    }
+}
+
+.num-pos {
+    color: #0c0;
+    font-weight: bold;
+}
+.num-neg {
+    color: #c00;
+    font-weight: bold;
+}
+.num-zero {
+    color: #ccc;
+    font-style: italic;
+}
+.statsDetails {
+    font-size: 14px;
+    color: #999;
+}
+
 #results {
     margin-top: 20px;
     padding: 20px;
-    background-color: #e9f7df;
-    border: 1px solid #d4edda;
+    background-color: #eee;
+    border: 1px solid #ccc;
     border-radius: 8px;
 }
 

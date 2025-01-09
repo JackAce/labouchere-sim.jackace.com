@@ -105,7 +105,7 @@ function performSimulation() {
 
     let successes = 0;
     let failures = 0;
-    let betsWagered = 0;
+    let betsPlaced = 0;
     let amountWagered = 0.00;
     let totalWinLoss = 0.00;
     
@@ -133,7 +133,7 @@ function performSimulation() {
 
             const randomValue = Math.random();
             //const randomValue = mt.genrand_real1();
-            betsWagered++;
+            betsPlaced++;
             amountWagered += currentBet;
 
             if (randomValue <= percentWin) {
@@ -152,19 +152,39 @@ function performSimulation() {
     }
 
     const totalTrials = successes + failures;
-    const percentSuccess = ((successes / totalTrials) * 100).toFixed(2);
-    const percentWinLoss = ((totalWinLoss / amountWagered) * 100).toFixed(2);
-    const averageBetSize = (amountWagered * 1.0000) / betsWagered;
+    const percentSuccess = ((successes / totalTrials) * 100).toFixed(3);
+    const percentWinLoss = ((totalWinLoss / amountWagered) * 100).toFixed(3);
+    //const averageBetSize = (amountWagered * 1.0000) / betsPlaced;
 
-    document.getElementById('successes').textContent = `Successes: ${successes}`;
-    document.getElementById('failures').textContent = `Failures: ${failures}`;
-    document.getElementById('percentSuccess').textContent = `Percent Success: ${percentSuccess}%`;
-    document.getElementById('amountWagered').textContent = `amountWagered: ${amountWagered}`;
-    document.getElementById('totalWinLoss').textContent = `totalWinLoss: ${totalWinLoss}`;
+    // let successCssClass = "num-pos";
+    // let failureCssClass = "num-neg";
+    let resultsCssClass = "num-neg";
+    // if (successes == 0) {
+    //   successCssClass = "num-zero";
+    // }
+    // if (failures == 0) {
+    //   failureCssClass = "num-zero";
+    // }
+    if (totalWinLoss > 0) {
+      resultsCssClass = "nul-pos";
+    }
+    else if (totalWinLoss == 0) {
+      resultsCssClass = "nul-zero";
+    }
 
-    document.getElementById('percentWinLoss').textContent = `percentWinLoss: ${percentWinLoss}`;
-    document.getElementById('betsWagered').textContent = `betsWagered: ${betsWagered}`;
-    document.getElementById('averageBetSize').textContent = `averageBetSize: ${averageBetSize}`;
+    document.getElementById('successes').textContent = `${successes.toLocaleString()}`;
+    document.getElementById('totalTrials').textContent = `${totalTrials.toLocaleString()}`;
+
+    document.getElementById('percentSuccess').textContent = `${percentSuccess}%`;
+    document.getElementById('amountWagered').textContent = `${amountWagered.toLocaleString()}`;
+
+    document.getElementById('totalWinLoss').textContent = `${totalWinLoss.toLocaleString()}`;
+    //document.getElementById('totalWinLoss').classList = resultsCssClass;
+
+    document.getElementById('percentWinLoss').textContent = `${percentWinLoss}%`;
+    document.getElementById('percentWinLoss').classList = resultsCssClass;
+    //document.getElementById('betsPlaced').textContent = `${betsPlaced.toLocaleString()}`;
+    //document.getElementById('averageBetSize').textContent = `${averageBetSize}`;
     document.getElementById('results').style.display = 'block';
 }
 

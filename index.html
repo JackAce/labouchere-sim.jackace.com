@@ -39,7 +39,7 @@ title: Labouchère Simulator - JackAce.com
                  -->
             </select>
 
-            <label for="winningUnits">Winning Units</label>
+            <label for="winningUnits">Win Goal in Units</label>
             <select id="winningUnits" name="winningUnits" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -58,7 +58,7 @@ title: Labouchère Simulator - JackAce.com
                 <option value="100">100</option>
             </select>
 
-            <label for="startingUnits">Starting Units</label>
+            <label for="startingUnits">Bankroll in Units</label>
             <select id="startingUnits" name="startingUnits" required>
                 <option value="10">10</option>
                 <option value="50" selected>50</option>
@@ -69,7 +69,7 @@ title: Labouchère Simulator - JackAce.com
                 <option value="2500">2,500</option>
             </select>
 
-            <label for="numberOfTrials">Number of Trials</label>
+            <label for="numberOfTrials">Number of Simulation Trials</label>
             <select id="numberOfTrials" name="numberOfTrials" required>
                 <option value="1">1 (debug mode)</option>
                 <option value="10">10</option>
@@ -89,14 +89,31 @@ title: Labouchère Simulator - JackAce.com
 
         <div id="results" style="display:none;">
             <h2>Simulation Results</h2>
-            <p id="successes"></p>
-            <p id="failures"></p>
-            <p id="percentSuccess"></p>
-            <p id="amountWagered"></p>
-            <p id="betsWagered"></p>
-            <p id="averageBetSize"></p>
-            <p id="totalWinLoss"></p>
-            <p id="percentWinLoss"></p>
+
+            <table class="results-table">
+                <tr>
+                    <th>
+                        Success %:
+                    </th>
+                    <td>
+                        <span id="percentSuccess"></span>
+                        <span class="statsDetails">
+                            (<span id="successes"></span>/<span id="totalTrials"></span>)
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Percent Win/Loss:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </th>
+                    <td>
+                        <span id="percentWinLoss"></span>
+                        <span class="statsDetails">
+                            (<span id="totalWinLoss"></span>/<span id="amountWagered"></span>)
+                        </span>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
