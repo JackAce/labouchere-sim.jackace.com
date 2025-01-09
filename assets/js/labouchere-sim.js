@@ -68,13 +68,13 @@
 //     }
 // }
 
-let isDebug = false;
+//let isDebug = false;
 
-function debugLog(logMessage) {
-    if (isDebug) {
-        console.log(logMessage);
-    }
-}
+// function debugLog(logMessage) {
+//     if (isDebug) {
+//         console.log(logMessage);
+//     }
+// }
 
 function performSimulation() {
     const wagerType = document.getElementById('wagerType').value;
@@ -82,23 +82,27 @@ function performSimulation() {
     const startingUnits = parseInt(document.getElementById('startingUnits').value, 10);
     const numberOfTrials = parseInt(document.getElementById('numberOfTrials').value, 10);
 
-    //const percentWin = wagerType === '0' ? 0.5 - (1 / 74) : 0.5 - (1 / 38);
     let percentWin = 0.00;
 
     switch (wagerType) {
       case 'R-0':
+        // Roulette Single Zero
         percentWin = 0.5 - (1.0 / 74.0); // True probability
         break;
       case 'R-00':
+        // Roulette Double Zero
         percentWin = 0.5 - (1.0 / 38.0); // True probability
         break;
       case 'C-P':
+        // Craps Pass Line
         percentWin = 0.5 - (7.0/990.0); // True probability
         break;
       case 'C-DP':
+        // Craps Don't Pass Line
         percentWin = 0.5 - (0.01364 / 2.0); // Estimated probability
         break;
       case 'B-P':
+        // Baccarat Player Bet
         percentWin = 0.5 - (0.01235 / 2.0); // Estimated probability
         break;
     };
@@ -109,7 +113,7 @@ function performSimulation() {
     let amountWagered = 0.00;
     let totalWinLoss = 0.00;
     
-    let isDebug = numberOfTrials == 1;
+    //let isDebug = numberOfTrials == 1;
 
     for (let trial = 0; trial < numberOfTrials; trial++) {
         let wagers = Array(winningUnits).fill(1);   // An array of length [winningUnits] with all 1's
@@ -157,34 +161,20 @@ function performSimulation() {
 
     let resultsCssClass = "num-neg";
     if (totalWinLoss > 0) {
-      resultsCssClass = "nul-pos";
+      resultsCssClass = "num-pos";
     }
     else if (totalWinLoss == 0) {
-      resultsCssClass = "nul-zero";
+      resultsCssClass = "num-zero";
     }
 
     document.getElementById('successes').textContent = `${successes.toLocaleString()}`;
     document.getElementById('totalTrials').textContent = `${totalTrials.toLocaleString()}`;
-
     document.getElementById('percentSuccess').textContent = `${percentSuccess}%`;
     document.getElementById('amountWagered').textContent = `${amountWagered.toLocaleString()}`;
-
     document.getElementById('totalWinLoss').textContent = `${totalWinLoss.toLocaleString()}`;
-
     document.getElementById('percentWinLoss').textContent = `${percentWinLoss}%`;
     document.getElementById('percentWinLoss').classList = resultsCssClass;
     document.getElementById('results').style.display = 'block';
 }
 
 //const mt = new MersenneTwister(Date.now()); // Initialize with a seed
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     //console.log(mt.genrand_real1());      // Random number between 0 and 1
-//     //console.log(mt.genrand_real2());      // Higher precision random number
-    
-//     //document.getElementById('simulationForm').addEventListener('submit', performSimulation());
-// });
-
-
-
-
