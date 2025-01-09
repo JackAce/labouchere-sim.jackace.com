@@ -3,6 +3,7 @@ function performSimulation() {
     const winningUnits = parseInt(document.getElementById('winningUnits').value, 10);
     const startingUnits = parseInt(document.getElementById('startingUnits').value, 10);
     const numberOfTrials = parseInt(document.getElementById('numberOfTrials').value, 10);
+    const startDateTime = Date.now();
 
     let percentWin = 0.00;
 
@@ -68,9 +69,11 @@ function performSimulation() {
         }
     }
 
+    const endDateTime = Date.now();
     const totalTrials = successes + failures;
     const percentSuccess = ((successes / totalTrials) * 100).toFixed(3);
     const percentWinLoss = ((totalWinLoss / amountWagered) * 100).toFixed(3);
+    const elapsedTime = endDateTime - startDateTime;
 
     let resultsCssClass = "num-neg";
     if (totalWinLoss > 0) {
@@ -87,5 +90,6 @@ function performSimulation() {
     document.getElementById('totalWinLoss').textContent = `${totalWinLoss.toLocaleString()}`;
     document.getElementById('percentWinLoss').textContent = `${percentWinLoss}%`;
     document.getElementById('percentWinLoss').classList = resultsCssClass;
+    document.getElementById('elapsedTime').textContent = `${elapsedTime.toLocaleString()} ms`;
     document.getElementById('results').style.display = 'block';
 }
