@@ -80,6 +80,11 @@ button:hover {
     font-size: 14px;
     color: #999;
 }
+.links {
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+}
 
 #results {
     margin-top: 20px;
