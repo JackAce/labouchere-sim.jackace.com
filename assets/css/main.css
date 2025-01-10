@@ -5,7 +5,6 @@ body {
     box-sizing: border-box;
     background-color: #66f;
 }
-
 .container {
     max-width: 600px;
     margin: 20px auto;
@@ -14,23 +13,19 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
 }
-
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
 label {
     font-weight: bold;
 }
-
 select {
     width: 100%;
     padding: 10px;
@@ -38,7 +33,6 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
 button {
     padding: 10px;
     font-size: 16px;
@@ -48,11 +42,9 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
-
 button:hover {
     background-color: #0056b3;
 }
-
 .results-table {
     th {
         text-align: left;
@@ -63,7 +55,6 @@ button:hover {
         text-align: right;
     }
 }
-
 .num-pos {
     color: #0c0;
     font-weight: bold;
@@ -80,20 +71,23 @@ button:hover {
     font-size: 14px;
     color: #999;
 }
+.header {
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+}
 .links {
     text-align: center;
     font-size: 12px;
     color: #ccc;
 }
-
 #results {
     margin-top: 20px;
     padding: 20px;
-    background-color: #eee;
+    background-color: #cfc;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
-
 @media (max-width: 600px) {
     .container {
         margin: 10px;

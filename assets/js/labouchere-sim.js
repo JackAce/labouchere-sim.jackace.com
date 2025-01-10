@@ -37,12 +37,15 @@ function performSimulation() {
     let totalWinLoss = 0.00;
     
     for (let trial = 0; trial < numberOfTrials; trial++) {
-        let wagers = Array(winningUnits).fill(1);   // An array of length [winningUnits] with all 1's
+        // An array of length [winningUnits] with all 1's
+        let wagers = Array(winningUnits).fill(1);
         let currentBalance = startingUnits;
         
         while (true) {
+            // Calculate the bet. Use only element in the array or the ends.
             let currentBet = wagers.length > 1 ? wagers[0] + wagers[wagers.length - 1] : wagers[0];
 
+            // Short circuit if we succeed or fail the sim
             if (wagers.length === 0) {
                 successes++;
                 break;
@@ -52,19 +55,19 @@ function performSimulation() {
                 break;
             }
 
-            const randomValue = Math.random();
             betsPlaced++;
             amountWagered += currentBet;
+            const randomValue = Math.random();
 
             if (randomValue <= percentWin) {
                 currentBalance += currentBet;
                 totalWinLoss += currentBet * 1.000;
-                wagers.pop();
-                wagers.shift();
+                wagers.pop(); // Remove the bottom of the array
+                wagers.shift(); // Remove the top of the array
             } else {
                 currentBalance -= currentBet;
                 totalWinLoss -= currentBet * 1.000;
-                wagers.push(currentBet);
+                wagers.push(currentBet); // Append to the bottom of the array
             }
         }
     }
@@ -75,6 +78,7 @@ function performSimulation() {
     const percentWinLoss = ((totalWinLoss / amountWagered) * 100).toFixed(3);
     const elapsedTime = endDateTime - startDateTime;
 
+    // Format results
     let resultsCssClass = "num-neg";
     if (totalWinLoss > 0) {
       resultsCssClass = "num-pos";
