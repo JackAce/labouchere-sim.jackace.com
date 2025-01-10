@@ -1,0 +1,62 @@
+---
+layout: default
+title: What is Labouchère? - JackAce.com
+---
+
+<div>
+    <h3>What is Labouchère?</h3>
+    <p>
+        Labouchère is a generic gambling system for trying to achieve a specific win goal.
+    </p>
+    <p>
+        <a href="https://en.wikipedia.org/wiki/Labouch%C3%A8re_system" target="_blank">Labouchère</a>
+        is also known as <i>Split Martingale</i> and the <i>Cancellation</i> betting system.
+    </p>
+    <h3>How is Labouchère used?</h3>
+    <p>
+        It can be applied to most gambling games that offer even money wagers. Some examples are
+        Red/Black/Odd/Even/High/Low in Roulette. Also the Pass and Don't Pass bets in Craps, and
+        the Player bet in Baccarat. You can also apply this to the Banker bet in Baccarat if the
+        house doesn't take a commission.
+    </p>
+    <h3>State Your Goal</h3>
+    <p>
+        To implement Labouchère, you start by stating your goal in terms of units. Let's say you
+        want to win 10 units.
+    </p>
+    <h3>Break up your Target Goal</h3>
+    <p>
+        Break apart your goal into smaller chunks. The most basic way to implement Labouchère is
+        to make all single unit chunks. So a 10 unit goal would have 10 one-unit chunks. It's also
+        to make your chunks 1, 2, 3, and 4.
+    </p>
+    <h3>Order your chunks</h3>
+    <p>
+        Now you want to put your chunks in to an ordered list. That's easy if each of the chunks
+        are 1, but for most instances, the order will be a factor later.
+    </p>
+    <h3>Make your first bet</h3>
+    <p>
+        To calculate your next bet, add up the items at the top and the bottom of the list. If your
+        list is [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], then you'd bet 2 units (1+1). If your list is
+        [1, 2, 3, 4], then you'd bet 5 units (1+5). If there is only one item in the list, then use
+        that as your next bet.
+    </p>
+    <h3>Did you win or lose?</h3>
+    <p>
+        If you won, then cross the top and bottom items off the list and proceed to the next bet.
+    </p>
+    <p>
+        If you lost, then add your current bet to the end of the list.
+    </p>
+    <h3>Is the list empty?</h3>
+    <p>
+        If you've crossed all the bets off the list, then you're done and you've achieved your goal!
+        <b class="num-pos">Congratulations!</b> You're done!
+    </p>
+    <h3>Can you make the next bet?</h3>
+    <p>
+        If you don't have enough money to make the next bet, then you're done and your attempt was a
+        <b class="num-neg">failure</b>.
+    </p>
+</div>

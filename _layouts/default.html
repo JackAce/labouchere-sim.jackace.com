@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+    <head>
+        {% include head.html %}
+    </head>
+    <body>
+        <div class="site-container">
+            <div class="container">
+                <header class="site-header">
+                    <h2>Labouchère Simulator</h2>
+                    {% include header.html %}
+                </header>
+            
+                {{ content }}
+            </div>
+
+            {% include footer.html %}
+        </div>
+
+    </body>
+</html>

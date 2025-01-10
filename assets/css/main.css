@@ -71,6 +71,11 @@ button:hover {
     font-size: 14px;
     color: #999;
 }
+.header {
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+}
 .links {
     text-align: center;
     font-size: 12px;
